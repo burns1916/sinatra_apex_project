@@ -1,3 +1,3 @@
-class LegendsController < ApplicaitonController
+class LegendsController < ApplicationController
 
 end
