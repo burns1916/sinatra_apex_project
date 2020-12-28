@@ -1,0 +1,6 @@
+<h3>Welcome,<%= @user.username%></h3>
+    <h4>Here are you individual Legend Stats</h4>
+    <%@user.legends.each do |legend| %>
+    <p><%= legend.kills %>
+    <%= legend.wins %></p>
+<%end%>
