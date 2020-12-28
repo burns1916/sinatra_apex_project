@@ -9,6 +9,7 @@ gem 'rake'
 gem 'sqlite3'
 gem 'thin'
 gem 'pry'
+gem 'bcrypt'
 
 gem 'simplecov'
 gem 'rspec'
