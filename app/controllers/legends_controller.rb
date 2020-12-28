@@ -8,7 +8,7 @@ class LegendsController < ApplicationController
 
     get '/legends/:slug' do
         redirect_if_not_logged_in
-        name = params[:slug]
+        slug = params[:slug]
         @legend = Legend.find_by_slug(slug)
         erb :"/legends/show"
     end
