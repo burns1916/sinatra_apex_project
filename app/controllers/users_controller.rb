@@ -4,8 +4,8 @@ class UsersController < ApplicationController
         if !logged_in?
           redirect '/login'
         end
-    
-        @user = User.find(params[:username])
+        slug = params[:username]
+        @user = User.find_by_slug(slug)
         if !@user.nil? && @user == current_user
           erb :'users/show'
         else
