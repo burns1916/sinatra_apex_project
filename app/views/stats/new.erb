@@ -1,0 +1,13 @@
+  
+<h1>Create a new Stats for a Legend</h1>
+
+<form action="/stats" method="POST">
+<label>Wins:</label><input type="text" name="stats[kills]" id="Kills"><br>
+<label>Kills:</label><input type="text" name="stats[wins]" id="Wins"><br>
+<label>Legends:</label><br>
+<% @legendss.each do |legend| %>
+  <input id="<%= legend.name %>" type="checkbox" name="stats[legends][]" value="<%= legend.id %>"><%= legend.name %><br>
+<% end %>
+<br><br>
+<button type="submit">Submit</button>
+</form>
