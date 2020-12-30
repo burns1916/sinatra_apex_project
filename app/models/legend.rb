@@ -4,4 +4,6 @@ class Legend < ActiveRecord::Base
     has_many :stats
     extend Slugifiable::ClassMethods
     include Slugifiable::InstanceMethods
+
+    
 end
