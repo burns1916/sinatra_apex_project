@@ -5,4 +5,8 @@ class StatsController < ApplicationController
         erb :"/stats/index"
     end
 
+    get '/stats/new' do 
+        erb :"stats/new"
+    end
+
 end

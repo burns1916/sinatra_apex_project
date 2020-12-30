@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_30_180448) do
+ActiveRecord::Schema.define(version: 2020_12_30_212858) do
 
   create_table "legends", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_12_30_180448) do
   create_table "stats", force: :cascade do |t|
     t.integer "kills"
     t.integer "wins"
+    t.integer "legend_id"
   end
 
   create_table "users", force: :cascade do |t|
