@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :"/index"
+    erb :"index"
     #Home page of Apex Stat Tracker
   end
 
