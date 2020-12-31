@@ -5,8 +5,18 @@ class StatsController < ApplicationController
         erb :"/stats/index"
     end
 
-    get '/stats/new' do 
+    get "/stats/:id/new" do 
+        @legend_id = params[:id]
         erb :"stats/new"
     end
 
+    post '/stats' do
+        binding.pry
+        @stat = Stat.create(params)
+        redirect to "stats/#{@stat.id}/show"
+    end
+
+    get "stats/:id/show" do
+        erb :"stats/show"
+    end
 end

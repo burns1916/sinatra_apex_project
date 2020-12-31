@@ -1,7 +1,8 @@
-<h2>Select a new Legend</h2>
+<h2>Select a Legend</h2>
 <form action="/legends" method="POST">
-    <% @legends.each do |legend| %> 
-        <input id="<% legend %>" type="radio" name="legend[name]" value="<%= legend %>"><%= legend %><br>
+    <% Legend.names.keys.each do |legend| %> 
+        <input id="<% legend %>" type="radio" name="name" value="<%= legend %>"><%= legend %><br>
     <% end %>
+    <br>
     <input type="submit">
 </form>
