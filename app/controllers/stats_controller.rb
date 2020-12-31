@@ -6,17 +6,21 @@ class StatsController < ApplicationController
     end
 
     get "/stats/:id/new" do 
-        @legend_id = params[:id]
+        @legend = Legend.find_by_id(params[:id])
         erb :"stats/new"
     end
 
-    post '/stats' do
-        binding.pry
-        @stat = Stat.create(params)
+    post '/stats/:id' do
+        @stat = Stat.new(params)
+        @stat.legend_id = params[:id]
+        @stat.user_id = current_user.id
+        @stat.save
         redirect to "stats/#{@stat.id}/show"
     end
 
-    get "stats/:id/show" do
+    get "/stats/:id/show" do
+        @stat = Stat.find_by_id(params[:id])
+        @legend = Legend.find_by_id(@stat.legend_id)
         erb :"stats/show"
     end
 end

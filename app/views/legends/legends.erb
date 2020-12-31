@@ -1,9 +1,9 @@
 <%if logged_in?%>
 
      <h2>Welcome, <%= current_user.username %></h2>
-      <%@legends.each do |legend| %>
-        <h3>Wins:  <%= legend.stats.wins %></h3>
-        <h4>Kills: <%= legend.stats.kills %></h4>
+      <% @legends.stats.each do |stat| %>
+        <h3>Wins:  <%= stat.wins %></h3>
+        <h4>Kills: <%= stat.kills %></h4>
       <%end%>
   <%else%>
      <%'/login'%>
