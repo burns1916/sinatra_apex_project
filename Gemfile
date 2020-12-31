@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'thin'
 gem 'pry'
 gem 'bcrypt'
+gem 'tux'
 
 gem 'simplecov'
 gem 'rspec'

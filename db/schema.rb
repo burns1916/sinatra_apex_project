@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_30_212858) do
+ActiveRecord::Schema.define(version: 2020_12_31_001839) do
 
   create_table "legends", force: :cascade do |t|
-    t.string "name"
     t.integer "user_id"
+    t.integer "name"
   end
 
   create_table "stats", force: :cascade do |t|
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_12_30_212858) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "pasword_digest"
+    t.string "password_digest"
   end
 
 end
