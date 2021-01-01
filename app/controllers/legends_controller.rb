@@ -24,7 +24,6 @@ class LegendsController < ApplicationController
         @legend = Legend.new(params)
         @legend.user_id = current_user.id
         @legend.save
-        binding.pry
         redirect to "stats/#{@legend.id}/new"
     end
 

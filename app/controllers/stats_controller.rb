@@ -20,7 +20,7 @@ class StatsController < ApplicationController
 
     get "/stats/:id" do
         @stat = Stat.find_by_id(params[:id])
-        @legend = Legend.find_by_id(@stat.legend_id)
+        @legend = Legend.find_by_id(params[:id])
         erb :"stats/show"
     end
 
