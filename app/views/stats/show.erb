@@ -1,12 +1,12 @@
 <h2><%= @legend.name %> Stats:</h2>
 <h3>Wins: <%= @stat.wins %></h3>
-<h3>Kills: <%= @stat.kills %></h3><br>
-<a href="/stats/<%= @stat.id %>/edit">Edit Stats</a><br>
+<h3>Kills: <%= @stat.kills %></h3>
+
 <form action="/stats/<%=@stat.id%>/delete" method="post">
   <input type="hidden" name="_method" value="delete">
-<p>Click To <a href="/stats/<%= @stats.id %>/edit">Edit Stats</a> </p>
+<p>Click To <a href="/stats/<%= @stat.id %>/edit">Edit Stats</a> </p>
 
-<p> To Delete Tweet:</p>
+<p> To Delete Stats:</p>
  <input type="submit" value="Delete Stats">
 
 </form>

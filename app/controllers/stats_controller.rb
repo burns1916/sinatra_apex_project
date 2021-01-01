@@ -26,6 +26,7 @@ class StatsController < ApplicationController
 
     get "/stats/:id/edit" do
         @stat = Stat.find_by_id(params[:id])
+        @legend = Legend.find_by_id(params[:id])
         if logged_in? && @stat.user_id == current_user.id
             erb :"/stats/edit"
         else
@@ -35,7 +36,7 @@ class StatsController < ApplicationController
 
     patch "/stats/:id" do
         @stat = Stat.find_by_id(params[:id])
-        if logged_in? && !params[:content].blank? && @stat.user_id == current_user.id
+        if logged_in? && !params[:kills].blank? && !params[:wins].blank? && @stat.user_id == current_user.id
             @stat.update(kills: params[:kills], wins: params[:wins]) 
             @stat.save
             redirect to "/stats/#{@stat.id}"
@@ -46,8 +47,10 @@ class StatsController < ApplicationController
 
     delete "/stats/:id/delete" do
         @stat = Stat.find_by_id(params[:id])
+        @legend = Legend.find_by_id(params[:id])
         if logged_in? && @stat.user_id == current_user.id
             @stat.delete
+            @legend.delete
             redirect to "/legends"
         else
             redirect to "/login"
