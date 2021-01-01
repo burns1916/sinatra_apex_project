@@ -2,4 +2,11 @@
 <h3>Wins: <%= @stat.wins %></h3>
 <h3>Kills: <%= @stat.kills %></h3><br>
 <a href="/stats/<%= @stat.id %>/edit">Edit Stats</a><br>
-<a href="/stats/<%= @stat.id %>/delete">Delete Stats</a>
+<form action="/stats/<%=@stat.id%>/delete" method="post">
+  <input type="hidden" name="_method" value="delete">
+<p>Click To <a href="/stats/<%= @stats.id %>/edit">Edit Stats</a> </p>
+
+<p> To Delete Tweet:</p>
+ <input type="submit" value="Delete Stats">
+
+</form>
