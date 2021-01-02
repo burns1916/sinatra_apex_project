@@ -3,14 +3,16 @@
      <h2>Welcome, <%= current_user.username %></h2>
      <p> Click legends name to view current stats:</p>
       <% @legends.each do |legend| %>
+            <% if legend.user_id == current_user.id %>
             <a href="/stats/<%= legend.id %>"><%= legend.name %></a><br>
+            <% end %>
         <% end %>
   <%else%>
      <%'/login'%>
   <%end%>
 <br>
 
-<p><strong>To A New Legend's Stats
+<p><strong>To Add New Legend's Stats
     <a href="/legends/new">Click Here</a></strong></p>
 <br>
 </br>
