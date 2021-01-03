@@ -21,12 +21,12 @@ class LegendsController < ApplicationController
     end
 
     post '/legends' do
-        @legend = Legend.new(params)
-        @legend.user_id = current_user.id
-        if Legend.exists?(:name => @legend.name) && Legend.exists?(:user_id => @legend.user_id)
-            @legend_dup = Legend.find_by(:name => params[:name])
-            redirect to "stats/#{@legend_dup.id}/edit"
+        if @legend = Legend.find_by(:name => params[:name]) && Legend.find_by(:user_id => current_user.id)
+            binding.pry
+            redirect to "stats/#{@legend.id}/edit"
         else
+            @legend = Legend.new(params)
+            @legend.user_id = current_user.id
             @legend.save
             redirect to "stats/#{@legend.id}/new"
         end

@@ -27,6 +27,7 @@ class StatsController < ApplicationController
     get "/stats/:id/edit" do
         @stat = Stat.find_by_id(params[:id])
         @legend = Legend.find_by_id(params[:id])
+        binding.pry
         if logged_in? && @stat.user_id == current_user.id
             erb :"/stats/edit"
         else
