@@ -6,6 +6,7 @@ class UsersController < ApplicationController
         else
             redirect to "/legends"
         end
+        #route request for new users to create account
     end
 
     post '/signup' do
@@ -16,6 +17,7 @@ class UsersController < ApplicationController
         else
             redirect to "/signup"
         end
+        #post route when users have filled out registration form
     end
 
     get '/login' do
@@ -24,6 +26,7 @@ class UsersController < ApplicationController
         else
             redirect to "/legends"
         end
+        #route request for users to login with an existing account
     end
 
     post '/login' do
@@ -34,6 +37,7 @@ class UsersController < ApplicationController
         else
             redirect to "/signup"
         end
+        #post request when users have filled out login form
     end
 
     get '/logout' do
@@ -43,5 +47,6 @@ class UsersController < ApplicationController
             session.clear
             redirect to "/login"
         end
+        #route request for user to log out of account
     end
 end

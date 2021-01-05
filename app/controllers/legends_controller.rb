@@ -2,22 +2,24 @@ require 'pry'
 class LegendsController < ApplicationController
 
     get '/legends' do
-        if redirect_if_not_logged_in
+        if logged_in?
             @users = current_user
             @legends = Legend.all
         erb :"/legends/legends"
         else
             redirect to "/login"
         end
+        #route which loads all legends with stat in the database for particular user
     end
 
     get '/legends/new' do
-        if redirect_if_not_logged_in
+        if logged_in?
             @user = current_user
         erb :"legends/new"
         else
             redirect to "/login"
         end
+        #route to create new legend
     end
 
     post '/legends' do
@@ -29,6 +31,7 @@ class LegendsController < ApplicationController
             @legend.save
             redirect to "stats/#{@legend.id}/new"
         end
+        #route which post new legend to database
     end
 
 end
