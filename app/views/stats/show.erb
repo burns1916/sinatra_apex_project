@@ -2,13 +2,12 @@
 <h3>Wins: <%= @stat.wins %></h3>
 <h3>Kills: <%= @stat.kills %></h3>
 
-<form action="/stats/<%=@stat.id%>/delete" method="post">
-  <input type="hidden" name="_method" value="delete">
 <p>Click To <a href="/stats/<%= @stat.id %>/edit">Edit Stats</a> </p>
 
+<form action="/stats/<%=@stat.id%>/delete" method="post">
+  <input type="hidden" name="_method" value="delete">
 <p> To Delete Stats:</p>
  <input type="submit" value="Delete Stats">
-
 </form>
 
 <a href="/legends">Return to Home Page</a>
