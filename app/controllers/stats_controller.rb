@@ -37,7 +37,6 @@ class StatsController < ApplicationController
         @stat = Stat.find_by_id(params[:id])
         if logged_in? && !params[:kills].blank? && !params[:wins].blank? && @stat.user_id == current_user.id
             @stat.update(kills: params[:kills], wins: params[:wins]) 
-            @stat.save
             redirect to "/stats/#{@stat.id}"
         else
             redirect to "/stats/#{@stat.id}/edit"

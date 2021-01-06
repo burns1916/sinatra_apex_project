@@ -28,6 +28,7 @@ class LegendsController < ApplicationController
             redirect to "stats/#{@legend.id}/edit"
         else
             @legend = Legend.new(params)
+            #@legend = current_user.legends.build(params)
             @legend.user_id = current_user.id
             @legend.save
             redirect to "stats/#{@legend.id}/new"
