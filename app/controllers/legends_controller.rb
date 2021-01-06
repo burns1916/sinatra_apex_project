@@ -23,7 +23,8 @@ class LegendsController < ApplicationController
     end
 
     post '/legends' do
-        if @legend = Legend.find_by(:name => params[:name]) && Legend.find_by(:user_id => current_user.id)
+        
+        if @legend = Legend.find_by(:name => params[:name], :user_id => current_user.id)
             redirect to "stats/#{@legend.id}/edit"
         else
             @legend = Legend.new(params)
